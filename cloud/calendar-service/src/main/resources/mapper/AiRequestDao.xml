@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imlaomi.cloud.calendar.dao.AiRequestDao">
+  <resultMap id="request" type="cn.imlaomi.cloud.calendar.entity.AiRequestEntity">
+    <constructor>
+      <idArg column="account_id" javaType="String" />
+      <arg column="request_id" javaType="String" />
+      <arg column="fingerprint" javaType="String" />
+      <arg column="feature" javaType="String" />
+      <arg column="model" javaType="String" />
+      <arg column="status" javaType="String" />
+      <arg column="created_at" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <insert id="claim">
+    INSERT IGNORE INTO
+    cloud_ai_requests(account_id,request_id,fingerprint,feature,model,status,created_at) VALUES(#{accountId},#{requestId},#{fingerprint},#{feature},#{model},#{status},#{createdAt})
+  </insert>
+  <select id="find" resultMap="request">
+    SELECT account_id,request_id,fingerprint,feature,model,status,created_at FROM cloud_ai_requests
+    WHERE account_id=#{account} AND request_id=#{request}
+  </select>
+  <update id="finish">
+    UPDATE cloud_ai_requests SET
+    status=#{status},input_tokens=#{inputTokens,jdbcType=INTEGER},output_tokens=#{outputTokens,jdbcType=INTEGER},latency_ms=#{latency},finished_at=#{finishedAt} WHERE
+    account_id=#{account} AND request_id=#{request}
+  </update>
+  <select id="countSince" resultType="int">
+    SELECT COUNT(*) FROM cloud_ai_requests WHERE created_at >= #{since}
+    <if test="account != null">AND account_id=#{account}</if>
+  </select>
+</mapper>

@@ -1,0 +1,83 @@
+server:
+  port: ${PORT:8802}
+  tomcat:
+    threads:
+      max: 12
+      min-spare: 2
+    max-http-form-post-size: 2MB
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      connect-timeout: 2s
+      timeout: 2s
+  config:
+    import:
+      - "nacos:calendar-common.yml?group=CALENDAR&refreshEnabled=true"
+      - "nacos:calendar-service.yml?group=CALENDAR&refreshEnabled=true"
+  application:
+    name: calendar-service
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3307/calendar_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USER:calendar_cloud}
+    password: ${MYSQL_PASSWORD}
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 1
+      connection-timeout: 5000
+  sql:
+    init:
+      mode: always
+  jackson:
+    deserialization:
+      fail-on-trailing-tokens: true
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      username: ${NACOS_USERNAME:nacos}
+      password: ${NACOS_PASSWORD:}
+      config:
+        namespace: ${NACOS_NAMESPACE:public}
+      discovery:
+        namespace: ${NACOS_NAMESPACE:public}
+        group: CALENDAR
+        network-interface: ${NACOS_NETWORK_INTERFACE:}
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 3000
+            read-timeout: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+cloud:
+  ai:
+    enabled: ${AI_ENABLED:false}
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${DEEPSEEK_MODEL:deepseek-flash}
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+    bridge-secret: ${AI_BRIDGE_SECRET:}
+    account-daily-limit: ${AI_ACCOUNT_DAILY_LIMIT:20}
+    global-daily-limit: ${AI_GLOBAL_DAILY_LIMIT:50}
+  token-secret: ${TOKEN_SECRET}
+  internal-key: ${INTERNAL_KEY}
+logging:
+  level:
+    com.alibaba.nacos: WARN
+    com.alibaba.cloud.nacos: WARN
+    org.springframework.cloud.loadbalancer: ERROR
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    local-cache-scope: STATEMENT
+
+spring.ai.model.chat: none

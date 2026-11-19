@@ -1,0 +1,7345 @@
+[
+  {
+    "name": "empty",
+    "incoming": {},
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "metadata",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "shareWith": [
+            " bob ",
+            "bob"
+          ],
+          "sharedBy": " alice "
+        }
+      ],
+      "notes": [
+        {
+          "id": "n",
+          "date": "2026-10-17",
+          "text": " 笔记 ",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17",
+            "bad",
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "anniversaries": [
+        {
+          "id": "ann",
+          "date": "2026-10-17",
+          "text": "ann",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": " 生日 ",
+          "kind": "once"
+        }
+      ],
+      "reminders": [
+        {
+          "id": "r",
+          "date": "2026-10-17",
+          "text": "r",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "time": "20:00",
+          "mode": "weekly",
+          "weekdays": [
+            5,
+            1,
+            5,
+            9
+          ],
+          "periodDays": 2,
+          "anchorDate": "2026-10-17",
+          "enabled": true
+        }
+      ],
+      "homeCity": {
+        "city": {
+          "name": " 上海 ",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800000
+      }
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "shareWith": [
+            "bob"
+          ],
+          "sharedBy": "alice",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [
+        {
+          "id": "n",
+          "date": "2026-10-17",
+          "text": "笔记",
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [
+        {
+          "id": "ann",
+          "name": "生日",
+          "kind": "once",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [
+        {
+          "id": "r",
+          "text": "r",
+          "time": "20:00",
+          "mode": "weekly",
+          "weekdays": [
+            1,
+            5
+          ],
+          "periodDays": 2,
+          "anchorDate": "2026-10-17",
+          "enabled": true,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "homeCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800000
+      },
+      "watchCity": null
+    }
+  },
+  {
+    "name": "merge-0",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": 4102444800000
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800000
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-1",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800001
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-2",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800002,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800002,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800002
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-3",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800003,
+          "deletedAt": 4102444800003
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800003,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800003
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-4",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800004,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800004,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800004
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-5",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800005,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800005,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800005
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-6",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800006,
+          "deletedAt": 4102444800006
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800006,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800006
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-7",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800007,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800007,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800007
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-8",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800008,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800008,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800008
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-9",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800009,
+          "deletedAt": 4102444800009
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800009,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800009
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-10",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800010
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-11",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800011,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800011,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800011
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-12",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800012,
+          "deletedAt": 4102444800012
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800012,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800012
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-13",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800013,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800013,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800013
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-14",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800014,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800014,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800014
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-15",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800015,
+          "deletedAt": 4102444800015
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800015,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800015
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-16",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800016,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800016,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800016
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-17",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800017,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800017,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800017
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-18",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800018,
+          "deletedAt": 4102444800018
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800018,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800018
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-19",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800019,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800019,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800019
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-20",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800020
+      }
+    }
+  },
+  {
+    "name": "merge-21",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800021,
+          "deletedAt": 4102444800021
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800021,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800021
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800021,
+          "deletedAt": 4102444800021
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800021,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800021
+      }
+    }
+  },
+  {
+    "name": "merge-22",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800022,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800022,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800022
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800022,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800022,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800022
+      }
+    }
+  },
+  {
+    "name": "merge-23",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800023,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800023,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800023
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800023,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800023,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800023
+      }
+    }
+  },
+  {
+    "name": "merge-24",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800024,
+          "deletedAt": 4102444800024
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800024,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800024
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800024,
+          "deletedAt": 4102444800024
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800024,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800024
+      }
+    }
+  },
+  {
+    "name": "merge-25",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800025,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800025,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800025
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800025,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800025,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800025
+      }
+    }
+  },
+  {
+    "name": "merge-26",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800026,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800026,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800026
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800026,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800026,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800026
+      }
+    }
+  },
+  {
+    "name": "merge-27",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800027,
+          "deletedAt": 4102444800027
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800027,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800027
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800027,
+          "deletedAt": 4102444800027
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800027,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800027
+      }
+    }
+  },
+  {
+    "name": "merge-28",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800028,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800028,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800028
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800028,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800028,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800028
+      }
+    }
+  },
+  {
+    "name": "merge-29",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800029,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800029,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800029
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800029,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800029,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800029
+      }
+    }
+  },
+  {
+    "name": "merge-30",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800030,
+          "deletedAt": 4102444800030
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800030,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800030
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800030,
+          "deletedAt": 4102444800030
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800030,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800030
+      }
+    }
+  },
+  {
+    "name": "merge-31",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800031,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800031,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800031
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800031,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800031,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800031
+      }
+    }
+  },
+  {
+    "name": "merge-32",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800032,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800032,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800032
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800032,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800032,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800032
+      }
+    }
+  },
+  {
+    "name": "merge-33",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800033,
+          "deletedAt": 4102444800033
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800033,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800033
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800033,
+          "deletedAt": 4102444800033
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800033,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800033
+      }
+    }
+  },
+  {
+    "name": "merge-34",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800034,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800034,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800034
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800034,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800034,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800034
+      }
+    }
+  },
+  {
+    "name": "merge-35",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800035,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800035,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800035
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": 4102444800020
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800035,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800035,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800035
+      }
+    }
+  },
+  {
+    "name": "merge-36",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800036,
+          "deletedAt": 4102444800036
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800036,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800036
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800036,
+          "deletedAt": 4102444800036
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800036,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800036
+      }
+    }
+  },
+  {
+    "name": "merge-37",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800037,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800037,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800037
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800037,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800037,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800037
+      }
+    }
+  },
+  {
+    "name": "merge-38",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800038,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800038,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800038
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800038,
+          "deletedAt": null
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800038,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800038
+      }
+    }
+  },
+  {
+    "name": "merge-39",
+    "incoming": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800039,
+          "deletedAt": 4102444800039
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800039,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-16"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800039
+      }
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null
+        }
+      ],
+      "habits": [
+        {
+          "id": "h",
+          "date": "2026-10-17",
+          "text": "h",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800020,
+          "deletedAt": null,
+          "checkIns": [
+            "2026-10-17"
+          ],
+          "archivedAt": null
+        }
+      ],
+      "watchCity": {
+        "city": {
+          "name": "上海",
+          "lat": 31,
+          "lon": 121
+        },
+        "updatedAt": 4102444800020
+      }
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [
+        {
+          "id": "a",
+          "date": "2026-10-17",
+          "text": "a",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800039,
+          "deletedAt": 4102444800039
+        },
+        {
+          "id": "b",
+          "date": "2026-10-17",
+          "text": "b",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [
+        {
+          "id": "h",
+          "text": "h",
+          "domain": "life",
+          "createdAt": 4102444800000,
+          "archivedAt": null,
+          "checkIns": [
+            "2026-10-16",
+            "2026-10-17"
+          ],
+          "updatedAt": 4102444800039,
+          "deletedAt": null
+        }
+      ],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": {
+        "city": {
+          "name": "杭州",
+          "lat": 30,
+          "lon": 120
+        },
+        "updatedAt": 4102444800039
+      }
+    }
+  },
+  {
+    "name": "forward-cross-day",
+    "incoming": {
+      "plans": [
+        {
+          "id": "p",
+          "date": "2026-10-17",
+          "text": "p",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-17",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30
+            }
+          ]
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [
+        {
+          "id": "line",
+          "name": "目标",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30
+            }
+          ],
+          "endTime": "00:20"
+        }
+      ],
+      "plans": [
+        {
+          "id": "p",
+          "date": "2026-10-17",
+          "text": "p",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "embedded-step",
+    "incoming": {
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-17",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [
+        {
+          "id": "line",
+          "name": "目标",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "endTime": "00:20",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work",
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-18",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ]
+        }
+      ],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "protect-deadline",
+    "incoming": {
+      "plans": [
+        {
+          "id": "p",
+          "date": "2026-10-17",
+          "text": "p",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-17",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30
+            }
+          ]
+        }
+      ]
+    },
+    "current": {
+      "plans": [
+        {
+          "id": "p",
+          "date": "2026-10-17",
+          "text": "p",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-17",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [
+        {
+          "id": "line",
+          "name": "目标",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "endTime": "00:20",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work",
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-18",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ]
+        }
+      ],
+      "plans": [
+        {
+          "id": "p",
+          "date": "2026-10-17",
+          "text": "p",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "domain": "life",
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "protect-steps",
+    "incoming": {
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": false,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "current": {
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-17",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [
+        {
+          "id": "line",
+          "name": "目标",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "endTime": "00:20",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work",
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-18",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ]
+        }
+      ],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "empty-steps",
+    "incoming": {
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null,
+          "items": [],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "current": {
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 30,
+              "step": {
+                "id": "p",
+                "date": "2026-10-17",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [
+        {
+          "id": "line",
+          "name": "目标",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "endTime": "00:20",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800010,
+          "deletedAt": null,
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work",
+          "items": []
+        }
+      ],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "invalid-import",
+    "incoming": {
+      "plans": [
+        {
+          "id": "invalid",
+          "date": "2026-02-30",
+          "text": "invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "timelines": [
+        {
+          "id": "line",
+          "name": " 目标 ",
+          "date": "2026-10-18",
+          "startTime": "23:50",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "items": [
+            {
+              "id": "i",
+              "planId": "p",
+              "durationMinutes": 0,
+              "step": {
+                "id": "p",
+                "date": "2026-10-17",
+                "text": "p",
+                "domain": "life",
+                "done": false,
+                "doneAt": null,
+                "createdAt": 4102444800000,
+                "updatedAt": 4102444800000,
+                "deletedAt": null
+              }
+            }
+          ],
+          "endTime": "00:20",
+          "stepsMode": true,
+          "goalPlanId": "timeline-goal:line",
+          "domain": "work"
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-solar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": false
+          },
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-legacy-solar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null,
+          "name": "母亲",
+          "kind": "yearly"
+        }
+      ]
+    },
+    "current": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "母亲",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null,
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": false
+          }
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-deleted-solar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": 4102444800002,
+          "name": "妈妈",
+          "kind": "yearly"
+        }
+      ]
+    },
+    "current": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": 4102444800002,
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": false
+          }
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-lunar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          },
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-legacy-lunar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null,
+          "name": "母亲",
+          "kind": "yearly"
+        }
+      ]
+    },
+    "current": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "母亲",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800001,
+          "deletedAt": null,
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-deleted-lunar",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": 4102444800002,
+          "name": "妈妈",
+          "kind": "yearly"
+        }
+      ]
+    },
+    "current": {
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "date": "2026-10-17",
+          "text": "birthday",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ]
+    },
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": 4102444800002,
+          "birthday": {
+            "calendar": "lunar",
+            "month": 2,
+            "day": 29,
+            "leapMonth": true
+          }
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-validation-{\"calendar\":\"solar\",\"month\":2,\"day\":30}",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "date": "2026-10-17",
+          "text": "birthday-invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "solar",
+            "month": 2,
+            "day": 30
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-validation-{\"calendar\":\"lunar\",\"month\":13,\"day\":1}",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "date": "2026-10-17",
+          "text": "birthday-invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 13,
+            "day": 1
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-validation-{\"calendar\":\"lunar\",\"month\":1,\"day\":31}",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "date": "2026-10-17",
+          "text": "birthday-invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 1,
+            "day": 31
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-validation-{\"calendar\":\"lunar\",\"month\":1.5,\"day\":1}",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "date": "2026-10-17",
+          "text": "birthday-invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 1.5,
+            "day": 1
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  },
+  {
+    "name": "birthday-validation-{\"calendar\":\"lunar\",\"month\":1,\"day\":1,\"leapMonth\":\"true\"}",
+    "incoming": {
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "date": "2026-10-17",
+          "text": "birthday-invalid",
+          "domain": "life",
+          "done": false,
+          "doneAt": null,
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null,
+          "name": "妈妈",
+          "kind": "yearly",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 1,
+            "day": 1,
+            "leapMonth": "true"
+          }
+        }
+      ]
+    },
+    "current": {},
+    "expected": {
+      "version": 2,
+      "timelines": [],
+      "plans": [],
+      "notes": [],
+      "habits": [],
+      "anniversaries": [
+        {
+          "id": "birthday-invalid",
+          "name": "妈妈",
+          "kind": "yearly",
+          "date": "2026-10-17",
+          "birthday": {
+            "calendar": "lunar",
+            "month": 1,
+            "day": 1,
+            "leapMonth": false
+          },
+          "createdAt": 4102444800000,
+          "updatedAt": 4102444800000,
+          "deletedAt": null
+        }
+      ],
+      "reminders": [],
+      "homeCity": null,
+      "watchCity": null
+    }
+  }
+]

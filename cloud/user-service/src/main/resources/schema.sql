@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS cloud_accounts (
+ id VARCHAR(48) CHARACTER SET ascii COLLATE ascii_bin PRIMARY KEY,
+ username VARCHAR(96) NOT NULL,
+ username_key VARCHAR(96) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL UNIQUE,
+ nickname VARCHAR(96) NULL,
+ password_hash VARCHAR(100) NOT NULL,
+ created_at BIGINT NOT NULL
+);

@@ -1,0 +1,19 @@
+services:
+  calendar-edge:
+    image: nginx:alpine
+    container_name: calendar-edge
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+      - ../dist:/srv/calendar:ro
+      - ./acme:/var/www/acme:ro
+      - ./letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - shared
+networks:
+  shared:
+    external: true
+    name: my-life_zhaojian

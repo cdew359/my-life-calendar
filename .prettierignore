@@ -1,0 +1,16 @@
+**/node_modules/**
+**/target/**
+**/__pycache__/**
+dist/**
+release/**
+resources/**
+public/downloads/**
+**/snapshots/**
+**/state/**
+**/.env*
+**/*lock.json
+electron/timelines.cjs
+electron/birthdayRules.cjs
+**/src/test/resources/**
+
+electron/aiPlans.cjs

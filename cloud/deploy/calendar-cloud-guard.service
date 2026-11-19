@@ -1,0 +1,7 @@
+[Unit]
+Description=Check calendar Cloud trial memory pressure
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /opt/my-life/calendar-cloud-trial/deploy/pressure-guard.py

@@ -1,0 +1,9 @@
+[Unit]
+Description=Renew calendar HTTPS certificates and reload nginx
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/my-life/calendar/domain/renew-certificates.sh
+TimeoutStartSec=600

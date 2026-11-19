@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imlaomi.cloud.user.dao.AccountDao">
+  <resultMap id="account" type="cn.imlaomi.cloud.user.entity.AccountEntity">
+    <constructor>
+      <idArg column="id" javaType="String" />
+      <arg column="username" javaType="String" />
+      <arg column="username_key" javaType="String" />
+      <arg column="nickname" javaType="String" />
+      <arg column="password_hash" javaType="String" />
+      <arg column="created_at" javaType="_long" />
+    </constructor>
+  </resultMap>
+  <sql id="columns">id,username,username_key,nickname,password_hash,created_at</sql>
+  <select id="findByUsernameKey" resultMap="account">
+    SELECT
+    <include refid="columns" />
+    FROM cloud_accounts WHERE username_key=#{key}
+  </select>
+  <select id="findAll" resultMap="account">
+    SELECT
+    <include refid="columns" />
+    FROM cloud_accounts ORDER BY created_at,id
+  </select>
+  <select id="countById" resultType="int">
+    SELECT COUNT(*) FROM cloud_accounts WHERE id=#{id}
+  </select>
+  <insert id="insert">
+    INSERT INTO
+    cloud_accounts(id,username,username_key,nickname,password_hash,created_at) VALUES(#{id},#{username},#{usernameKey},#{nickname,jdbcType=VARCHAR},#{passwordHash},#{createdAt})
+  </insert>
+  <update id="updateNickname">
+    UPDATE cloud_accounts SET nickname=#{nickname,jdbcType=VARCHAR} WHERE id=#{id}
+  </update>
+</mapper>

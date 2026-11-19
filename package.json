@@ -1,0 +1,79 @@
+{
+  "name": "calendar",
+  "productName": "日历表",
+  "private": true,
+  "version": "0.5.1",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"server/{src,scripts,tests}/**/*.{ts,js,mjs,cjs}\" \"server/deploy/**/*.{yml,sh}\" \"electron/{main,preload}.cjs\" \"scripts/*.{js,mjs,cjs}\" \"tests/**/*.{ts,tsx}\" \"cloud/**/*.{java,xml,yml,sh,ts,mjs}\" \"public/site/*.{html,css}\" \"*.{json,ts,html}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"server/{src,scripts,tests}/**/*.{ts,js,mjs,cjs}\" \"server/deploy/**/*.{yml,sh}\" \"electron/{main,preload}.cjs\" \"scripts/*.{js,mjs,cjs}\" \"tests/**/*.{ts,tsx}\" \"cloud/**/*.{java,xml,yml,sh,ts,mjs}\" \"public/site/*.{html,css}\" \"*.{json,ts,html}\"",
+    "format:python": "python -m black cloud scripts/check-python-docs.py --workers 1",
+    "format:check:python": "python -m black cloud scripts/check-python-docs.py --check --workers 1",
+    "comments:check": "node scripts/check-method-docs.mjs",
+    "public:check": "node scripts/check-public-content.mjs",
+    "comments:check:python": "python scripts/check-python-docs.py",
+    "dev": "vite --port 5180",
+    "dev:desktop": "concurrently -k -n vite,electron \"vite --port 5180\" \"wait-on tcp:127.0.0.1:5180 && electron .\"",
+    "start:desktop": "npm run build && electron . --dist",
+    "build": "node scripts/build-timelines.cjs && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "icon": "node scripts/make-icon.mjs",
+    "pack:win": "npm run build && electron-builder --win nsis",
+    "dev:full": "concurrently -k -n api,web \"npm --prefix server run dev\" \"npm run dev\"",
+    "predev:desktop": "node scripts/build-timelines.cjs",
+    "pretest": "node scripts/build-timelines.cjs",
+    "test:desktop": "npm run build && electron . --dist --smoke",
+    "preview:timelines": "concurrently -k -n web,preview \"npm run dev -- --host 127.0.0.1\" \"wait-on tcp:127.0.0.1:5180 && electron scripts/preview-timelines.cjs\""
+  },
+  "dependencies": {
+    "lunar-javascript": "^1.7.7",
+    "motion": "^12.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "3.4.2",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "5.0.4",
+    "concurrently": "^10.0.5",
+    "electron": "^44.4.1",
+    "electron-builder": "^26.15.3",
+    "prettier": "3.9.10",
+    "prettier-plugin-java": "2.11.0",
+    "prettier-plugin-sh": "0.20.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vite": "6.4.2",
+    "wait-on": "^9.1.0"
+  },
+  "build": {
+    "appId": "com.mylife.calendar",
+    "productName": "日历表",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "electron/**",
+      "resources/**",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "description": "计划要做的事，收下做成的事",
+  "author": "laomi"
+}

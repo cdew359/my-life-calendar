@@ -1,0 +1,68 @@
+server:
+  port: ${PORT:8803}
+  tomcat:
+    threads:
+      max: 12
+      min-spare: 2
+    max-http-form-post-size: 2MB
+spring:
+  config:
+    import:
+      - "nacos:calendar-common.yml?group=CALENDAR&refreshEnabled=true"
+      - "nacos:diary-service.yml?group=CALENDAR&refreshEnabled=true"
+  application:
+    name: diary-service
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3307/calendar_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USER:calendar_cloud}
+    password: ${MYSQL_PASSWORD}
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 1
+      connection-timeout: 5000
+  sql:
+    init:
+      mode: always
+  jackson:
+    deserialization:
+      fail-on-trailing-tokens: true
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      username: ${NACOS_USERNAME:nacos}
+      password: ${NACOS_PASSWORD:}
+      config:
+        namespace: ${NACOS_NAMESPACE:public}
+      discovery:
+        namespace: ${NACOS_NAMESPACE:public}
+        group: CALENDAR
+        network-interface: ${NACOS_NETWORK_INTERFACE:}
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 3000
+            read-timeout: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+cloud:
+  token-secret: ${TOKEN_SECRET}
+  internal-key: ${INTERNAL_KEY}
+  elasticsearch-url: ${ELASTICSEARCH_URL:http://localhost:9200}
+  diary-index: ${DIARY_INDEX:calendar-diaries-cloud-v1}
+logging:
+  level:
+    com.alibaba.nacos: WARN
+    com.alibaba.cloud.nacos: WARN
+    org.springframework.cloud.loadbalancer: ERROR
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    local-cache-scope: STATEMENT

@@ -1,0 +1,12 @@
+# 与正式 calendar-sync 的 compose 一起加载；先启动 cloud，再确认网络名称。
+services:
+  calendar-sync:
+    environment:
+      AI_JAVA_URL: http://calendar-service:8802
+      AI_BRIDGE_SECRET: ${AI_BRIDGE_SECRET:?Configure shared AI bridge secret}
+    networks:
+      - shared-mysql
+networks:
+  shared-mysql:
+    external: true
+    name: calendar-cloud-trial_private

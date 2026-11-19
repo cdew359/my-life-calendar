@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily private diary backup
+[Timer]
+OnCalendar=*-*-* 04:30:00
+Persistent=true
+RandomizedDelaySec=600
+[Install]
+WantedBy=timers.target

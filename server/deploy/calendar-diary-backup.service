@@ -1,0 +1,7 @@
+[Unit]
+Description=Back up calendar diary SQL and account mapping
+After=docker.service
+Requires=docker.service
+[Service]
+Type=oneshot
+ExecStart=/opt/my-life/calendar/server/deploy/backup-diaries.sh

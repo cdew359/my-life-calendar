@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imlaomi.cloud.diary.dao.DiaryOutboxDao">
+  <resultMap id="job" type="cn.imlaomi.cloud.diary.entity.DiaryOutboxJob">
+    <constructor>
+      <idArg column="id" javaType="_long" />
+      <arg column="account_id" javaType="String" />
+      <arg column="diary_date" javaType="String" />
+      <arg column="attempts" javaType="_int" />
+    </constructor>
+  </resultMap>
+  <insert id="enqueue">
+    INSERT INTO cloud_diary_outbox(account_id,diary_date) VALUES(#{account},#{date}) ON DUPLICATE
+    KEY UPDATE attempts=0,next_attempt=0
+  </insert>
+  <select id="claim" resultMap="job" useCache="false" flushCache="true">
+    SELECT id,account_id,diary_date,attempts FROM cloud_diary_outbox WHERE next_attempt <![CDATA[ <= ]]> #{now} ORDER
+    BY id LIMIT 1 FOR UPDATE SKIP LOCKED
+  </select>
+  <delete id="delete">DELETE FROM cloud_diary_outbox WHERE id=#{id}</delete>
+  <update id="defer">
+    UPDATE cloud_diary_outbox SET attempts=attempts+1,next_attempt=#{nextAttempt} WHERE id=#{id}
+  </update>
+  <insert id="reindex">
+    INSERT INTO cloud_diary_outbox(account_id,diary_date) SELECT account_id,diary_date FROM
+    cloud_diary_entries ON DUPLICATE KEY UPDATE attempts=0,next_attempt=0
+  </insert>
+</mapper>

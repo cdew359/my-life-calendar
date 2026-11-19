@@ -1,0 +1,10 @@
+# Non-secret operational settings only. Database and signing secrets stay in the environment.
+spring:
+  cloud:
+    loadbalancer:
+      cache:
+        ttl: 5s
+logging:
+  level:
+    com.alibaba.nacos: WARN
+    com.alibaba.cloud.nacos: WARN

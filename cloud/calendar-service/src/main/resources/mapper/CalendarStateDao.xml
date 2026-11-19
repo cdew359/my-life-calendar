@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.imlaomi.cloud.calendar.dao.CalendarStateDao">
+  <resultMap id="state" type="cn.imlaomi.cloud.calendar.entity.CalendarStateEntity">
+    <constructor>
+      <idArg column="account_id" javaType="String" />
+      <arg column="version" javaType="_long" />
+      <arg column="payload" javaType="String" />
+    </constructor>
+  </resultMap>
+  <select id="find" resultMap="state" useCache="false">
+    SELECT account_id,version,payload FROM cloud_calendar_states WHERE account_id=#{account}
+  </select>
+  <select id="lockCalendar" resultType="int" useCache="false" flushCache="true">
+    SELECT id FROM cloud_calendar_lock WHERE id=1 FOR UPDATE
+  </select>
+  <insert id="upsert">
+    INSERT INTO
+    cloud_calendar_states(account_id,version,payload) VALUES(#{accountId},#{version},#{payload}) ON
+    DUPLICATE KEY UPDATE version=VALUES(version),payload=VALUES(payload)
+  </insert>
+</mapper>

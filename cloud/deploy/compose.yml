@@ -1,0 +1,167 @@
+name: calendar-cloud-trial
+
+x-java: &java
+  restart: "no"
+  mem_limit: 256m
+  memswap_limit: 512m
+  cpus: 0.75
+  pids_limit: 128
+  environment: &env
+    JAVA_TOOL_OPTIONS: -Duser.home=/tmp -Xms32m -Xmx96m -XX:MaxMetaspaceSize=112m -XX:ReservedCodeCacheSize=24m -XX:MaxDirectMemorySize=24m -Xss512k -XX:+UseSerialGC -XX:ActiveProcessorCount=1 -XX:+ExitOnOutOfMemoryError
+    NACOS_SERVER_ADDR: nacos:8848
+    NACOS_USERNAME: nacos
+    NACOS_PASSWORD: ${NACOS_PASSWORD:?Configure Nacos credentials first}
+    SPRING_CLOUD_INETUTILS_PREFERRED_NETWORKS: ${NACOS_PRIVATE_NETWORK:?Configure the private network first}
+    MYSQL_URL: jdbc:mysql://mysql:3306/calendar_cloud?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    MYSQL_USER: calendar_cloud
+    MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Configure private .env first}
+    TOKEN_SECRET: ${TOKEN_SECRET:?Configure private .env first}
+    INTERNAL_KEY: ${INTERNAL_KEY:?Configure private .env first}
+    CLOUD_DATA_MODE: ${CLOUD_DATA_MODE:-trial}
+    SPRING_CLOUD_LOADBALANCER_CACHE_TTL: 5s
+  networks: [private]
+  logging:
+    driver: json-file
+    options: { max-size: 5m, max-file: "2" }
+
+services:
+  nacos:
+    image: nacos/nacos-server:v3.1.1
+    restart: "no"
+    mem_limit: 448m
+    memswap_limit: 768m
+    cpus: 0.75
+    pids_limit: 384
+    environment:
+      MODE: standalone
+      PREFER_HOST_MODE: hostname
+      NACOS_AUTH_ENABLE: "true"
+      NACOS_AUTH_TOKEN: ${NACOS_AUTH_TOKEN:?Configure Nacos authentication first}
+      NACOS_AUTH_IDENTITY_KEY: calendarServer
+      NACOS_AUTH_IDENTITY_VALUE: ${NACOS_AUTH_IDENTITY_VALUE:?Configure Nacos authentication first}
+      JVM_XMS: 64m
+      JVM_XMX: 192m
+      JVM_XMN: 32m
+      SERVER_TOMCAT_THREADS_MAX: 20
+      SERVER_TOMCAT_THREADS_MIN_SPARE: 2
+      JAVA_TOOL_OPTIONS: -XX:MaxMetaspaceSize=160m -XX:ReservedCodeCacheSize=24m -XX:MaxDirectMemorySize=32m -Xss512k -XX:+UseSerialGC -XX:ActiveProcessorCount=1 -XX:+ExitOnOutOfMemoryError
+    ports: ["127.0.0.1:8848:8848", "127.0.0.1:8850:8080"]
+    volumes: [nacos:/home/nacos/data]
+    networks: [private, management]
+    logging:
+      driver: json-file
+      options: { max-size: 5m, max-file: "2" }
+  gateway:
+    <<: *java
+    image: calendar-cloud/gateway:trial
+    build: { context: .., dockerfile: deploy/Dockerfile, args: { SERVICE: gateway } }
+    networks: [private, edge]
+    ports: ["127.0.0.1:8790:8789"]
+    depends_on: [nacos]
+  user-service:
+    <<: *java
+    image: calendar-cloud/user-service:trial
+    build: { context: .., dockerfile: deploy/Dockerfile, args: { SERVICE: user-service } }
+    environment:
+      <<: *env
+      REGISTER_CODE: ${REGISTER_CODE:?Configure private .env first}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Configure private .env first}
+    depends_on:
+      mysql: { condition: service_healthy }
+      redis: { condition: service_started }
+      nacos: { condition: service_started }
+  calendar-service:
+    <<: *java
+    image: calendar-cloud/calendar-service:trial
+    build: { context: .., dockerfile: deploy/Dockerfile, args: { SERVICE: calendar-service } }
+    environment:
+      <<: *env
+      AI_ENABLED: ${AI_ENABLED:-false}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-flash}
+      AI_BRIDGE_SECRET: ${AI_BRIDGE_SECRET:-}
+      AI_ACCOUNT_DAILY_LIMIT: ${AI_ACCOUNT_DAILY_LIMIT:-20}
+      AI_GLOBAL_DAILY_LIMIT: ${AI_GLOBAL_DAILY_LIMIT:-50}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Configure private .env first}
+    networks: [private, ai-egress]
+    depends_on:
+      mysql: { condition: service_healthy }
+      redis: { condition: service_started }
+      nacos: { condition: service_started }
+  diary-service:
+    <<: *java
+    image: calendar-cloud/diary-service:trial
+    build: { context: .., dockerfile: deploy/Dockerfile, args: { SERVICE: diary-service } }
+    environment:
+      <<: *env
+      ELASTICSEARCH_URL: http://calendar-diary-es:9200
+      DIARY_INDEX: ${DIARY_INDEX:-calendar-diaries-cloud-trial-v1}
+      AI_BRIDGE_SECRET: ${AI_BRIDGE_SECRET:-}
+    networks: [private, search]
+    depends_on:
+      mysql: { condition: service_healthy }
+      nacos: { condition: service_started }
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    mem_limit: 320m
+    memswap_limit: 640m
+    cpus: 0.75
+    environment:
+      MYSQL_DATABASE: calendar_cloud
+      MYSQL_USER: calendar_cloud
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Configure private .env first}
+    command:
+      [
+        "--innodb-buffer-pool-size=64M",
+        "--performance-schema=OFF",
+        "--max-connections=32",
+        "--table-open-cache=128",
+        "--mysqlx=0",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_bin",
+      ]
+    volumes: [mysql:/var/lib/mysql]
+    networks: [private]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+  redis:
+    image: redis:7.4-alpine
+    restart: "no"
+    mem_limit: 48m
+    memswap_limit: 96m
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    command:
+      [
+        "sh",
+        "-c",
+        'exec redis-server --requirepass "$$REDIS_PASSWORD" --maxmemory 16mb --maxmemory-policy noeviction --save '''' --appendonly no',
+      ]
+    networks: [private]
+
+volumes:
+  mysql:
+  nacos:
+networks:
+  ai-egress:
+    # 仅允许 calendar-service 出站调用远程模型，不发布任何宿主端口。
+  private:
+    internal: true
+  management:
+    # A non-internal bridge is required for Docker's loopback-only port forwarding.
+    # Business clients still connect over the private network; nothing binds a public host address.
+  edge:
+    external: true
+    name: my-life_zhaojian
+  search:
+    external: true
+    name: calendar-diary-private

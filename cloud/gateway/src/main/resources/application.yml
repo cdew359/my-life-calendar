@@ -1,0 +1,42 @@
+server:
+  port: ${PORT:8789}
+spring:
+  config:
+    import:
+      - "nacos:calendar-common.yml?group=CALENDAR&refreshEnabled=true"
+      - "nacos:gateway.yml?group=CALENDAR&refreshEnabled=true"
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+      username: ${NACOS_USERNAME:nacos}
+      password: ${NACOS_PASSWORD:}
+      config:
+        namespace: ${NACOS_NAMESPACE:public}
+      discovery:
+        namespace: ${NACOS_NAMESPACE:public}
+        group: CALENDAR
+        network-interface: ${NACOS_NETWORK_INTERFACE:}
+    gateway:
+      server:
+        webflux:
+          httpclient:
+            connect-timeout: 5000
+            response-timeout: 15s
+          discovery:
+            locator:
+              enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+logging:
+  level:
+    com.alibaba.nacos: WARN
+    com.alibaba.cloud.nacos: WARN
+    org.springframework.cloud.loadbalancer: ERROR

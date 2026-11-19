@@ -1,0 +1,48 @@
+# Replaces the existing production override only after the shared-data migration.
+services:
+  calendar-sync:
+    ports:
+      - "127.0.0.1:8791:8788"
+    env_file:
+      - ./diary.env
+      - ./shared-mysql.env
+    networks:
+      - zhaojian
+      - diary-search
+      - shared-mysql
+  diary-elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.23
+    container_name: calendar-diary-es
+    restart: unless-stopped
+    mem_limit: 768m
+    memswap_limit: 1536m
+    cpus: 1.0
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      xpack.ml.enabled: "false"
+      xpack.watcher.enabled: "false"
+      ingest.geoip.downloader.enabled: "false"
+      ES_JAVA_OPTS: "-Xms256m -Xmx256m -XX:MaxDirectMemorySize=128m"
+    volumes:
+      - diary_es_data:/usr/share/elasticsearch/data
+    networks:
+      - diary-search
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fsS 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s' >/dev/null",
+        ]
+      interval: 20s
+      timeout: 8s
+      retries: 10
+volumes:
+  diary_es_data:
+networks:
+  diary-search:
+    internal: true
+    name: calendar-diary-private
+  shared-mysql:
+    external: true
+    name: calendar-cloud-trial_private

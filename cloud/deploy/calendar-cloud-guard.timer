@@ -1,0 +1,9 @@
+[Unit]
+Description=Protect production while trying Spring Cloud
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+
+[Install]
+WantedBy=timers.target

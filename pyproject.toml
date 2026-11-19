@@ -1,0 +1,5 @@
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.py$'
+extend-exclude = '/(node_modules|target|release|__pycache__|snapshots|state)/'

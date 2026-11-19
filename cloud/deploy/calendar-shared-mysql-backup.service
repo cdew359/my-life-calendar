@@ -1,0 +1,7 @@
+[Unit]
+Description=Back up shared calendar MySQL database
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /opt/my-life/calendar-cloud-trial/deploy/backup-shared-mysql.sh
