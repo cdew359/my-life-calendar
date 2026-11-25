@@ -1,0 +1,24 @@
+# Optional overlay: docker compose -f compose.yml -f compose.nginx.yml ...
+# Nginx must join the private network and load the explicit public API routes.
+services:
+  gateway:
+    profiles: [java-gateway]
+  user-service:
+    restart: unless-stopped
+    environment:
+      LEGACY_TOKEN_SECRET: ${LEGACY_TOKEN_SECRET:-}
+  calendar-service:
+    restart: unless-stopped
+    # Spring AI adds native/class metadata after the first model request.
+    # The JVM heap setting remains unchanged; this is the whole-process limit.
+    mem_limit: 320m
+    environment:
+      LEGACY_TOKEN_SECRET: ${LEGACY_TOKEN_SECRET:-}
+  diary-service:
+    restart: unless-stopped
+    environment:
+      LEGACY_TOKEN_SECRET: ${LEGACY_TOKEN_SECRET:-}
+  nacos:
+    restart: unless-stopped
+  redis:
+    restart: unless-stopped

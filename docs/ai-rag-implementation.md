@@ -1,6 +1,8 @@
 # AI 计划草稿与日记问答
 
-2026-11-19。本地实现，尚未发布服务器；不读取旧快照覆盖当前业务数据。
+2026-11-20。已完成服务器部署与 Windows 0.6.0 客户端联调；不读取旧快照覆盖当前业务数据。
+
+2026-11-24 正式入口改为 Nginx 直接转发 Java 业务服务，Node 与 Java Gateway 停止常驻。当前客户端为 0.6.2；下文 Node 桥接与 Gateway 配置保留为兼容部署方式。正式入口示例见 [Nginx Cloud 部署](nginx-cloud-deployment.md)。
 
 ## 已实现
 
@@ -29,7 +31,7 @@
 | `cloud/diary-service/.../service/DiaryRetrievalService.java` | 账号范围内的检索和 MySQL 权威回查 |
 | `cloud/common/.../util/AiBridgeTokens.java` | 绑定账号、用途、请求体摘要与有效期的 HMAC |
 
-API：`GET /api/ai/capabilities`、`POST /api/ai/events/interpret`、`POST /api/ai/knowledge/ask`。Cloud 由网关显式路由；`/internal/ai/*` 不经公网网关。能力检测只说明部署配置，不消耗模型额度，也不保证模型实时可用。
+API：`GET /api/ai/capabilities`、`POST /api/ai/events/interpret`、`POST /api/ai/knowledge/ask`。由 Nginx 或可选 Gateway 显式路由；`/internal/ai/*` 不经公网入口。能力检测只说明部署配置，不消耗模型额度，也不保证模型实时可用。
 
 ## 成本与失败处理
 
@@ -60,7 +62,7 @@ AI_GLOBAL_DAILY_LIMIT=50
 
 `cloud/deploy/compose.yml` 已将模型密钥仅提供给 calendar-service；桥接密钥提供给 calendar-service 与 diary-service。calendar-service 新增 Redis 配置和无宿主端口的出站网络，以便访问 DeepSeek。原数据库、Redis、Nacos 私密配置继续沿用。
 
-正式 Node 与 Cloud 登录密钥不同，不能直接转用 token。正式入口需设置：
+保留历史 Node 桥接模式且两边登录密钥不同时，不能直接转用 token。此模式需为 Node 设置：
 
 ```dotenv
 AI_JAVA_URL=http://calendar-service:8802
@@ -69,14 +71,18 @@ AI_BRIDGE_SECRET=与Java两服务相同的专用密钥
 
 `server/deploy/ai-bridge.compose.yml` 是可选叠加配置，将 `calendar-sync` 加入 Cloud 的内部网络；先确认运行项目的实际网络名是否为 `calendar-cloud-trial_private`。与正式部署的现有 compose 一起加载，保留原共享 MySQL、ES、域名等所有叠加配置。不要把内部 8802/8803 端口直接发布公网，也不要单独用旧 standalone 配置替换现网完整配置。
 
-构建步骤：根目录 `npm run build`、`npm --prefix server run typecheck`；JDK 17 下 `mvn -f cloud/pom.xml clean verify` 得到四个可执行 JAR。桌面安装包用 `npm run pack:win` 单独生成；本期未发布或安装新包。正式网页与 Cloud 网页需要分别使用各自既有构建参数。先更新 Java 服务与 Node 桥接，再发前端；检查普通登录、同步、日记、AI 两条链路和服务器内存。
+构建步骤：根目录 `npm run build`、`npm --prefix server run typecheck`；JDK 17 下 `mvn -f cloud/pom.xml clean verify` 得到四个可执行 JAR。桌面安装包用 `npm run pack:win` 单独生成；0.6.0 已部署并更新 Windows 客户端。正式网页与 Cloud 网页需要分别使用各自既有构建参数。先更新 Java 服务与 Node 桥接，再发前端；检查普通登录、同步、日记、AI 两条链路和服务器内存。
+
+Cloud 网关仅对 AI 路由设置35秒响应等待，普通同步保持原15秒；外层反向代理至少等待45秒。AI 日记 Feign 客户端单独设置10秒读取等待，避免小内存主机首次检索预热超过普通5秒限制。模型缺失的可选日期/时间字段若为空字符串，统一成 null；非空非法值仍拒绝。不可预期异常只记录类型，不记录原文、响应、账号和密钥。
 
 回退优先 `AI_ENABLED=false`。需要回退代码时还原旧服务镜像和前端，不覆盖期间新产生的业务数据。共用 MySQL 不得停止或删除卷。
 
 ## 验证
 
-覆盖 Boot 4 上下文启动、无模型密钥关闭启动、真实 MyBatis 审计 SQL、HMAC 跨语言协议、输入与时间校验、幂等与配额、失败不重试、无证据不调用、伪造引用与旧缓存失效。DeepSeek 使用本机模拟 HTTP，验证实际请求协议、关闭思考、JSON、输出限制、用量和 RAG 上下文；没有调用真实付费模型。
+覆盖 Boot 4 上下文启动、无模型密钥关闭启动、真实 MyBatis 审计 SQL、HMAC 跨语言协议、输入与时间校验、模型空字符串兼容、幂等与配额、失败不重试、无证据不调用、伪造引用与旧缓存失效。常规 DeepSeek 测试使用本机模拟 HTTP，验证实际请求协议、关闭思考、JSON、输出限制、用量和 RAG 上下文，不消耗真实额度。
 
 网页与 Electron 使用同一套批量逻辑测试。`scripts/test-ai-ui.cjs` 在隔离临时数据目录里使用真实 React/Electron 页面，测试显式生成、默认不选歧义、保存、原文跳转、故障保留与登录会话改变；也检查窄屏横向溢出。运行需本地 Vite 5188 端口及测试页 `tests/ui/ai.html`，完全使用假数据。
 
-真实 MySQL/ES 的两项 Node 集成测试需要专用环境，缺少配置时跳过。尚未完成真实 Nacos/MySQL/Redis/ES/DeepSeek 的整链路部署联调，也未验证 2GB 服务器的升级后容量。上述通过的本地测试不替代这些上线检查。
+真实 MySQL/ES 的两项 Node 集成测试需要专用环境，缺少配置时跳过。2026-11-20 已使用独立虚构账号完成线上 Nacos/MySQL/Redis/ES/DeepSeek 整链路及客户端验证，检查已有业务数据未被升级改写、正式与 Cloud 响应一致；验证后清理测试账号和假数据。2GB 主机仍有较明显的 swap 使用，短时运行检查不代表长期或并发容量保证。
+
+客户端 `--smoke` 使用独立临时资料。额外设置 `CAL_AI_SMOKE=1`、`CAL_SYNC_URL`、`CAL_SYNC_USER`、`CAL_SYNC_PASSWORD` 可主动运行真实 AI 界面测试；仅接受 `ai_test_` 加12位十六进制的专用测试账号，可能消耗模型额度。不要将真实用户口令写入脚本、仓库或命令参数。

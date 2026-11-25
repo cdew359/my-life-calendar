@@ -248,7 +248,8 @@ export default function App() {
   }, [data, view, aliveHabits]);
 
   const upcoming = useMemo(() => {
-    const items = upcomingAnniversaries(aliveAnniversaries, today, 5);
+    // 纪念日和家人生日共用一个位置，法定假期倒计时独立保留。
+    const items = upcomingAnniversaries(aliveAnniversaries, today, 1);
     const holiday = nextHoliday(today);
     if (holiday) {
       items.push({
@@ -260,7 +261,7 @@ export default function App() {
         builtin: true,
       });
     }
-    return items.sort((a, b) => a.days - b.days).slice(0, 4);
+    return items.sort((a, b) => a.days - b.days);
   }, [aliveAnniversaries, today]);
 
   /** 按给定月份偏移切换月历，并记录翻页方向。 */

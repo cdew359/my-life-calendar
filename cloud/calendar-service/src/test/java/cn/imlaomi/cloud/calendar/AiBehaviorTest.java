@@ -96,6 +96,52 @@ class AiBehaviorTest {
         ).isInstanceOf(ApiException.class);
     }
 
+    /** 真实模型用空字符串表达缺失时间时可正常预览，非空非法时间仍须拒绝。 */
+    @Test
+    void normalizesOnlyBlankOptionalTimeFields() {
+        var service = new AiDraftValidationService();
+        var request = new EventRequest(id, "学习Spring AI", "2026-11-21", "Asia/Shanghai", "work");
+        var draft = new EventDraft(
+            0,
+            "2026-11-21",
+            "学习Spring AI",
+            "work",
+            "15:00",
+            "",
+            " ",
+            30,
+            "",
+            List.of()
+        );
+        var result = service
+            .validate(new EventExtraction(List.of(draft)), request, LocalDate.of(2026, 11, 20))
+            .get(0);
+        assertThat(result.startTime()).isEqualTo("15:00");
+        assertThat(result.endDate()).isNull();
+        assertThat(result.endTime()).isNull();
+        assertThat(result.unresolvedTimeText()).isNull();
+        assertThat(result.durationMinutes()).isEqualTo(30);
+        var invalid = new EventDraft(
+            0,
+            "2026-11-21",
+            "学习Spring AI",
+            "work",
+            "25:00",
+            "",
+            "",
+            30,
+            "",
+            List.of()
+        );
+        assertThatThrownBy(() ->
+            service.validate(
+                new EventExtraction(List.of(invalid)),
+                request,
+                LocalDate.of(2026, 11, 20)
+            )
+        ).isInstanceOf(ApiException.class);
+    }
+
     /** 相同请求从缓存返回，内容不一致、缓存失效及账号不同均不能错误重放。 */
     @Test
     void persistentIdempotencyPreventsSecondCall() {

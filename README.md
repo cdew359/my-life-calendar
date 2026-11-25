@@ -10,7 +10,7 @@
 
 产品官网：[imlaomi.cn](https://imlaomi.cn/) · 网页入口：[cal.imlaomi.cn](https://cal.imlaomi.cn/)
 
-> 线上为个人使用环境，需要账号，不提供公开测试口令。源码可能领先于线上与已发布安装包。AI 一期已完成本地实现及模拟测试，默认关闭，尚未完成真实 DeepSeek 和服务器整链路联调。
+> 线上为个人使用环境，需要账号，不提供公开测试口令。AI 一期已完成真实 DeepSeek、服务端与 Windows 0.6.0 客户端整链路联调。自行部署时 AI 默认关闭，需在后端配置密钥；源码可能领先于已发布版本。
 
 ## 功能与截图
 
@@ -52,7 +52,7 @@
 | 层次 | 选型 |
 | --- | --- |
 | Java 后端 | Java 17、Spring Boot 4.0.9、Spring Cloud 2025.1.4、Spring Cloud Alibaba 2025.1.0.0 |
-| 服务治理 | Nacos 注册与配置、Gateway、OpenFeign、LoadBalancer |
+| 服务治理 | Nacos 注册与配置、OpenFeign、LoadBalancer；Nginx 入口，Gateway 可选 |
 | 数据访问 | MyBatis Starter 4.0.1、MySQL 8.4、Redis 7.4 |
 | 检索与 AI | Elasticsearch 8.x、Spring AI 2.0.2、远程 DeepSeek |
 | 网页与桌面 | React 19、TypeScript、Vite 6、Electron |
@@ -66,8 +66,12 @@ flowchart TD
   Web[React 网页] --> Local[按账号隔离的本地数据]
   Desktop[Electron 客户端] --> Local
   Local -->|主动同步 / 日记接口| Entry{后端入口}
-  Entry --> Gateway[Spring Cloud Gateway]
-  Entry --> Node[Node / Hono 兼容入口]
+  Entry --> Nginx[Nginx 正式入口]
+  Entry -.-> Gateway[可选 Spring Cloud Gateway]
+  Entry -.-> Node[保留的 Node / Hono 兼容入口]
+  Nginx --> User
+  Nginx --> Calendar
+  Nginx --> Diary
   Gateway --> User[user-service]
   Gateway --> Calendar[calendar-service]
   Gateway --> Diary[diary-service]
@@ -92,7 +96,9 @@ flowchart TD
 
 Java 服务采用 `controller → service → dao`；请求与响应用业务 DTO，数据库行使用 entity，工具放在 util，SQL 放在 MyBatis XML。Gateway 不引入空置的 Service/DAO 层。
 
-Node 入口与 Java 服务是兼容演进关系。共享模式下使用同一个 MySQL 与 ES 索引，两种登录签名保持独立；AI 通过短期内部签名桥接，不放宽原登录校验。项目没有消息队列、分布式事务框架或多实例容量验证。
+2026-11-24 正式环境切换为 Nginx 直接转发三个 Java 业务服务，停止常驻 Node 与 Java Gateway；Nacos 继续提供注册配置和内部 Feign 寻址。迁移时统一登录签名密钥，并可通过旧密钥校验兼容尚未过期的 Cloud 会话。部署示例和边界见 [Nginx Cloud 部署](docs/nginx-cloud-deployment.md)。
+
+Node 入口与 Java 服务是兼容演进关系，共享模式使用同一个 MySQL 与 ES 索引。保留 Node 桥接模式时，不同登录密钥之间通过专用短期内部签名调用 AI，不放宽原登录校验。项目没有消息队列、分布式事务框架或多实例容量验证。
 
 ## 核心设计与取舍
 
@@ -161,7 +167,9 @@ npm run public:check
 mvn -f cloud/pom.xml clean verify
 ```
 
-AI 一期本地基线：前端 111 项、Node 21 项、Java 43 项测试通过；Node 另有 2 项需真实数据库/ES 的集成测试在无配置时跳过。Java 同步兼容测试使用 59 组 TypeScript 生成的对照用例。模型协议使用模拟 HTTP，不默认消耗真实额度。
+当前本地验证：前端 111 项、Node 21 项、Java 45 项测试通过；Node 另有 2 项需真实数据库/ES 的集成测试在无配置时跳过。Java 同步兼容测试使用 59 组 TypeScript 生成的对照用例。常规测试使用模拟 HTTP，不默认消耗真实额度。
+
+2026-11-20 使用独立假数据账号完成上线验证：正式入口与 Cloud 能力检测、真实计划提取、跨入口幂等重放、MySQL/ES 日记检索、带引用问答，以及客户端草稿确认、IPC 保存、同步与原文跳转。此验证不等于长期稳定性或并发容量测试。
 
 提供 GitHub Actions 工作流，推送后执行构建、测试与公开内容检查；实际状态以仓库 Actions 为准。Electron 图形冒烟、真实外部服务和生产容量检查不包含在该工作流内。
 
@@ -196,6 +204,6 @@ docs/               设计说明与虚构样例截图
 
 ## 已知边界与后续方向
 
-面向个人小规模使用，不宣称高并发或生产高可用。提醒依赖打开的网页或运行中的客户端；计划保存本机后按同步入口提交，不在每次编辑后自动上传。AI 需要用户主动触发和后端配置，尚未完成真实提供商及线上全链路验证。向量与混合检索、完整统计查询和容量优化留待后续评估。
+面向个人小规模使用，不宣称高并发或生产高可用。提醒依赖打开的网页或运行中的客户端；计划保存本机后按同步入口提交，不在每次编辑后自动上传。AI 需要用户主动触发和后端配置，2GB 服务器的内存余量较小，保留压力保护与程序回退机制。向量与混合检索、完整统计查询和容量优化留待后续评估。
 
 仓库不附带生产密钥、账号数据、私人日记、安装包或数据库备份。当前未附 LICENSE，许可证待确定。

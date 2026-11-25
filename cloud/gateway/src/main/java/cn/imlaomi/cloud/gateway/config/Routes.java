@@ -12,7 +12,7 @@ import org.springframework.web.cors.reactive.*;
 @Configuration
 public class Routes {
 
-    /** 只为账号、日历和日记 API 注册按服务名转发的网关路由。 */
+    /** 为账号、日历、AI 和日记 API 注册按服务名转发的网关路由。 */
     @Bean
     RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder
@@ -25,13 +25,20 @@ public class Routes {
             )
             .route("calendar", r ->
                 r
+                    .path("/api/data")
+                    .filters(f -> f.removeRequestHeader("X-Account-Id"))
+                    .uri("lb://calendar-service")
+            )
+            .route("ai", r ->
+                r
                     .path(
-                        "/api/data",
                         "/api/ai/capabilities",
                         "/api/ai/events/interpret",
                         "/api/ai/knowledge/ask"
                     )
                     .filters(f -> f.removeRequestHeader("X-Account-Id"))
+                    // 模型读取可持续25秒；仅 AI 路由延长到35秒，普通同步仍沿用15秒。
+                    .metadata("response-timeout", 35000)
                     .uri("lb://calendar-service")
             )
             .route("diaries", r ->

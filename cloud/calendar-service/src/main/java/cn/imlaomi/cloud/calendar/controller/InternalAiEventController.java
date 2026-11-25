@@ -7,7 +7,7 @@ import cn.imlaomi.cloud.common.util.AiBridgeTokens;
 import org.springframework.web.bind.annotation.*;
 import tools.jackson.databind.ObjectMapper;
 
-/** 正式 Node 入口的私网桥接，不接收或放宽 Cloud 登录令牌。 */
+/** 供 Node 后端内部调用的 AI 接口。 */
 @RestController
 public class InternalAiEventController {
 
@@ -32,7 +32,7 @@ public class InternalAiEventController {
         this.json = json;
     }
 
-    /** 只有可信内部调用方可探测 AI 开关。 */
+    /** 供 Node 后端查询 AI 功能是否已启用。 */
     @PostMapping("/internal/ai/capabilities")
     public Capabilities capabilities(
         @RequestHeader(value = "X-AI-Bridge-Token", required = false) String token,
@@ -42,7 +42,7 @@ public class InternalAiEventController {
         return new Capabilities(requests.enabled(), requests.enabled(), requests.enabled());
     }
 
-    /** 先验证完整请求体签名，再解析事件对象。 */
+    /** 处理 Node 转发的自然语言录入请求，返回计划草稿。 */
     @PostMapping("/internal/ai/events/interpret")
     public EventResponse events(
         @RequestHeader(value = "X-AI-Bridge-Token", required = false) String token,
@@ -52,7 +52,7 @@ public class InternalAiEventController {
         return events.interpret(account, json.readValue(body, EventRequest.class));
     }
 
-    /** 不允许用户伪造内部账号去检索其他人的日记。 */
+    /** 处理 Node 转发的日记问答请求，返回答案与来源。 */
     @PostMapping("/internal/ai/knowledge/ask")
     public AnswerResponse ask(
         @RequestHeader(value = "X-AI-Bridge-Token", required = false) String token,

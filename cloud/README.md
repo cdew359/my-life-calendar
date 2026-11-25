@@ -4,16 +4,18 @@ Java 业务实现，保留网页、Electron 和 Node 兼容入口的同步协议
 
 ## 模块与职责
 
-| 模块 | 职责 | 内部端口 |
-| --- | --- | --- |
-| gateway | 显式公开 API 路由、服务发现与转发 | 8789 |
-| user-service | 账号、bcrypt、令牌、昵称、Redis 登录限流 | 8801 |
-| calendar-service | 快照合并、分享、计划草稿、日记 RAG、AI 治理 | 8802 |
-| diary-service | 日记版本、事务 outbox、有界线程池、ES 检索 | 8803 |
-| common | 跨服务协议、令牌、鉴权、异常与输入上限 | 无独立进程 |
-| Nacos | 注册与配置，Docker 容器，非 Maven 模块 | 8848 / 9848 / 8080 |
+| 模块             | 职责                                        | 内部端口           |
+| ---------------- | ------------------------------------------- | ------------------ |
+| gateway          | 显式公开 API 路由、服务发现与转发           | 8789               |
+| user-service     | 账号、bcrypt、令牌、昵称、Redis 登录限流    | 8801               |
+| calendar-service | 快照合并、分享、计划草稿、日记 RAG、AI 治理 | 8802               |
+| diary-service    | 日记版本、事务 outbox、有界线程池、ES 检索  | 8803               |
+| common           | 跨服务协议、令牌、鉴权、异常与输入上限      | 无独立进程         |
+| Nacos            | 注册与配置，Docker 容器，非 Maven 模块      | 8848 / 9848 / 8080 |
 
 `registry/` 是历史 Eureka 源码，不在当前构建与运行模块中。业务服务采用 [Controller → Service → DAO](../docs/java-project-structure.md)，Mapper XML 随 JAR 打包。
+
+小内存生产部署可使用现有 Nginx 替代 Java Gateway，仅常驻三个业务 JVM；Nacos 注册配置和内部 Feign 调用继续保留。健康协议接口由 user-service 提供。可选 Compose 覆盖文件为 `deploy/compose.nginx.yml`，路由、令牌兼容与回退说明见 [Nginx Cloud 部署](../docs/nginx-cloud-deployment.md)。
 
 ## 构建和测试
 
@@ -31,7 +33,7 @@ mvn -f cloud/pom.xml clean verify
 
 `deploy/compose.yml` 是带小内存参数的部署参考，包含外部网络名称和必填环境项，需要适配自己的网络与连接，并非无需配置的一键演示。公开仓库保留可复用的示例、资源保护和备份脚本；个人服务器的一次性导入、归并和发布脚本留在本机，不作为学习环境的初始化命令。
 
-日历按账号保存 JSON 快照；日记按账号和日期保存独立行及版本。Node 与 Java 的共享模式使用同一 MySQL 和 ES 索引，但令牌签名独立。并未将所有 Plan 拆成关系表。
+日历按账号保存 JSON 快照；日记按账号和日期保存独立行及版本。Node 与 Java 的共享模式使用同一 MySQL 和 ES 索引。历史双入口模式的令牌签名独立；正式切换至 Nginx 时统一签名密钥，并可配置旧密钥兼容过渡会话。并未将所有 Plan 拆成关系表。
 
 ## AI 与 RAG
 

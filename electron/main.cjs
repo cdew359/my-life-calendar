@@ -947,6 +947,76 @@ function createTray() {
 
 // ── 冒烟模式：加载页面后跑一遍 IPC 往返再退出 ───────────
 
+/** 仅用隔离资料和专用测试账号验证客户端 AI、保存、同步与日记引用链路。 */
+async function runAiSmoke() {
+  const server = process.env.CAL_SYNC_URL || "";
+  const username = process.env.CAL_SYNC_USER || "";
+  const password = process.env.CAL_SYNC_PASSWORD || "";
+  if (!/^ai_test_[a-f0-9]{12}$/.test(username) || !server || !password)
+    throw new Error("AI smoke requires a disposable test account");
+  return mainWindow.webContents.executeJavaScript(`(async () => {
+    const server = ${JSON.stringify(server)}, username = ${JSON.stringify(username)};
+    const login = await fetch(server+'/api/login', {method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({username,password:${JSON.stringify(password)}})}).then(r=>r.json());
+    if (!login.token) throw Error('AI smoke login failed');
+    const api = window.desktopAPI;
+    await api.data.setAccount(username);
+    localStorage.setItem('calendar.sync.server',server);
+    localStorage.setItem('calendar.sync.user',username);
+    localStorage.setItem('calendar.sync.token',login.token);
+    const headers = {authorization:'Bearer '+login.token,'content-type':'application/json'};
+    const pulled = await fetch(server+'/api/data',{headers}).then(r=>r.json());
+    await api.data.replaceAll(pulled.data);
+    const pause = ms => new Promise(resolve=>setTimeout(resolve,ms));
+    const wait = async predicate => {
+      for (let i=0;i<180;i++) { if(predicate()) return; await pause(250); }
+      throw Error('AI smoke UI wait timed out: '+predicate.toString());
+    };
+    const button = text => [...document.querySelectorAll('button')].find(b=>b.textContent.trim()===text);
+    const input = (selector,value) => {
+      const element=document.querySelector(selector);
+      const prototype=element instanceof HTMLTextAreaElement?HTMLTextAreaElement.prototype:HTMLInputElement.prototype;
+      Object.getOwnPropertyDescriptor(prototype,'value').set.call(element,value);
+      element.dispatchEvent(new Event('input',{bubbles:true}));
+    };
+    await wait(()=>document.querySelector('.login-skip') || document.querySelector('.ai-entry'));
+    document.querySelector('.login-skip')?.click();
+    await wait(()=>document.querySelector('.ai-entry'));
+    const beforeIds=new Set((await api.data.load()).plans.map(p=>p.id));
+    document.querySelector('.ai-entry').click();
+    await wait(()=>document.querySelector('.ai-dialog[open]'));
+    input('.ai-dialog textarea','2026年11月21日15:00学习Spring AI，预计30分钟。');
+    document.querySelector('.ai-dialog .ai-consent input').click();
+    await wait(()=>button('生成计划草稿') && !button('生成计划草稿').disabled);
+    button('生成计划草稿').click();
+    await wait(()=>document.querySelectorAll('.ai-card').length===1);
+    await wait(()=>button('确认所选并保存计划') && !button('确认所选并保存计划').disabled);
+    button('确认所选并保存计划').click();
+    await wait(()=>document.querySelector('.ai-dialog').textContent.includes('已保存到本机计划'));
+    const data=await api.data.load();
+    const saved=data.plans.filter(p=>p.id.startsWith('ai:') && !p.deletedAt && !beforeIds.has(p.id));
+    if(saved.length!==1 || saved[0].date!=='2026-11-21') throw Error('AI IPC save failed');
+    const pushed=await fetch(server+'/api/data',{method:'POST',headers,body:JSON.stringify({data})});
+    if(!pushed.ok) throw Error('AI plan sync failed');
+    const again=await fetch(server+'/api/data',{headers}).then(r=>r.json());
+    if(!again.data.plans.some(p=>p.id===saved[0].id)) throw Error('AI plan round-trip failed');
+    button('问问日记').click();
+    await wait(()=>document.querySelector('.ai-dialog > label input:not([type])'));
+    input('.ai-dialog textarea','部署验证中网关超时是怎么解决的？');
+    input('.ai-dialog > label input:not([type])','部署验证');
+    input('.ai-dialog input[type=date]','2026-11-01');
+    const dates=document.querySelectorAll('.ai-dialog input[type=date]');
+    Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(dates[1],'2026-11-30');
+    dates[1].dispatchEvent(new Event('input',{bubbles:true}));
+    await wait(()=>button('查找并回答') && !button('查找并回答').disabled);
+    button('查找并回答').click();
+    await wait(()=>button('打开日记原文 ↗'));
+    if(!document.querySelector('.ai-result').textContent.includes('35')) throw Error('AI cited answer failed');
+    button('打开日记原文 ↗').click();
+    await wait(()=>!document.querySelector('.ai-dialog[open]') && document.querySelector('.diary-dialog[open]'));
+    return {generated:true,persisted:true,synced:true,rag:true,sourceOpened:true};
+  })()`);
+}
+
 /** 在隔离的测试用户目录中检查桌面页面加载和数据操作，不使用安装用户的真实资料。 */
 function runSmoke() {
   const syncUrl = process.env.CAL_SYNC_URL ?? "";
@@ -1026,8 +1096,12 @@ function runSmoke() {
         return { ok: same && toggled && checked && timelineSaved && timelineReloaded && birthdayReloaded && briefingBridge && typeof api.briefing.showBirthday === "function" && !sync.startsWith("fail"), plans: alive(d0.plans) + "->" + planCount, birthdayReloaded, sync };
       })()`,
     )
-      .then((result) => {
+      .then(async (result) => {
         if (result && result.ok) {
+          if (process.env.CAL_AI_SMOKE === "1") {
+            const ai = await runAiSmoke();
+            console.log(`AI_SMOKE_OK ${JSON.stringify(ai)}`);
+          }
           console.log(`SMOKE_OK plans=${result.plans} sync=${result.sync} preload=true`);
           app.exit(0);
         } else {

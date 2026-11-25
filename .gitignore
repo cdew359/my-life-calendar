@@ -64,6 +64,9 @@ data-*.json
 /cloud/deploy/*
 !/cloud/deploy/Dockerfile
 !/cloud/deploy/compose.yml
+!/cloud/deploy/compose.nginx.yml
+!/cloud/deploy/nginx-cloud-map.conf
+!/cloud/deploy/nginx-cloud-proxy.inc
 !/cloud/deploy/nacos-config/
 !/cloud/deploy/pressure-guard.py
 !/cloud/deploy/calendar-cloud-guard.service

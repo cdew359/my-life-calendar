@@ -50,15 +50,21 @@ public final class AiBridgeTokens {
 
     /** 拒绝过期、用途错误、伪造签名和被篡改的请求体，只返回已验证的账号。 */
     public String verify(String token, String audience, String body) {
+        //确认秘钥存在
         if (secret == null || secret.length() < 32) throw new ApiException(503, "AI 桥接尚未配置");
         try {
+            //确认token存在
             if (token == null || token.length() > 2048) throw new IllegalArgumentException();
+            //token：编码后的载荷.编码后的签名
             String[] parts = token.split("\\.", -1);
+            //校验token格式是否正确，然后校验载荷和签名做了Base64转换之后是否一致
             if (
                 parts.length != 2 ||
                 !MessageDigest.isEqual(sign(parts[0]), Base64.getUrlDecoder().decode(parts[1]))
             ) throw new IllegalArgumentException();
+            //将载荷转成对象
             Claims claims = JSON.readValue(Base64.getUrlDecoder().decode(parts[0]), Claims.class);
+            //检查是否超时、账号是否存在、账号格式是否合法、摘要是否一致
             long remaining = claims.expires() - System.currentTimeMillis();
             if (
                 !audience.equals(claims.audience()) ||

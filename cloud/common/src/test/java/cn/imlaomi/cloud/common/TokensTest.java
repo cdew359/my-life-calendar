@@ -43,4 +43,25 @@ class TokensTest {
                 .encodeToString(mac.doFinal(payload.getBytes(StandardCharsets.UTF_8)));
         assertThat(new Tokens(secret).verify(token)).isEqualTo("node-account");
     }
+
+    /** 验证迁移同时保留两套会话，并拒绝过期、篡改和其他密钥签发的令牌。 */
+    @Test
+    void migrationPreservesBothSessionsWithoutTrustingOtherKeys() {
+        String oldSecret = secret + "-previous";
+        Tokens migration = new Tokens(secret, oldSecret);
+        assertThat(migration.verify(new Tokens(secret).issue("node-account", 30))).isEqualTo(
+            "node-account"
+        );
+        assertThat(migration.verify(new Tokens(oldSecret).issue("cloud-account", 30))).isEqualTo(
+            "cloud-account"
+        );
+        assertThat(migration.verify(new Tokens(oldSecret).issue("cloud-account", -1))).isNull();
+        assertThat(migration.verify(new Tokens(secret + "-untrusted").issue("other", 30))).isNull();
+        assertThat(
+            migration.verify(new Tokens(oldSecret).issue("cloud-account", 30) + "x")
+        ).isNull();
+        assertThat(new Tokens(secret).verify(migration.issue("new-account", 30))).isEqualTo(
+            "new-account"
+        );
+    }
 }

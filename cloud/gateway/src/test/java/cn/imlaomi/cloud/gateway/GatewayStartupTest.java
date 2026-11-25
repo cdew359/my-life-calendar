@@ -31,7 +31,17 @@ class GatewayStartupTest {
                 .map(r -> r.getId())
                 .collectList()
                 .block()
-        ).containsExactlyInAnyOrder("users", "calendar", "diaries");
+        ).containsExactlyInAnyOrder("users", "calendar", "ai", "diaries");
+        var ai = routes
+            .getRoutes()
+            .filter(r -> r.getId().equals("ai"))
+            .blockFirst();
+        assertThat(ai.getMetadata()).containsEntry("response-timeout", 35000);
+        var calendar = routes
+            .getRoutes()
+            .filter(r -> r.getId().equals("calendar"))
+            .blockFirst();
+        assertThat(calendar.getMetadata()).doesNotContainKey("response-timeout");
         var http = HttpClient.newHttpClient();
         var health = http.send(
             HttpRequest.newBuilder(URI.create("http://127.0.0.1:" + port + "/api/health")).build(),

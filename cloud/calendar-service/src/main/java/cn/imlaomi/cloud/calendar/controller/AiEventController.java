@@ -5,7 +5,7 @@ import cn.imlaomi.cloud.calendar.service.*;
 import cn.imlaomi.cloud.common.config.ApiSecurity;
 import org.springframework.web.bind.annotation.*;
 
-/** Cloud 用户通过已有鉴权调用 AI，不允许从请求体选账号。 */
+/** 提供 AI 计划草稿生成和日记问答接口。 */
 @RestController
 public class AiEventController {
 
@@ -24,13 +24,13 @@ public class AiEventController {
         this.requests = requests;
     }
 
-    /** 能力检查不触发模型调用或消耗配额。 */
+    /** 查询 AI 功能是否已启用，不调用模型。 */
     @GetMapping("/api/ai/capabilities")
     public Capabilities capabilities() {
         return new Capabilities(requests.enabled(), requests.enabled(), requests.enabled());
     }
 
-    /** 提取日历计划草稿。 */
+    /** 将自然语言转换为可编辑的计划草稿，待用户确认保存。 */
     @PostMapping("/api/ai/events/interpret")
     public EventResponse events(
         @RequestAttribute(ApiSecurity.ACCOUNT) String account,
@@ -39,7 +39,7 @@ public class AiEventController {
         return events.interpret(account, body);
     }
 
-    /** 根据本人日记证据回答问题。 */
+    /** 根据当前用户的相关日记回答问题，并返回原文来源。 */
     @PostMapping("/api/ai/knowledge/ask")
     public AnswerResponse ask(
         @RequestAttribute(ApiSecurity.ACCOUNT) String account,

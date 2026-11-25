@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import tools.jackson.databind.ObjectMapper;
 
-/** 私网 RAG 接口，只从短期签名中取得账号，公开请求不能自选账号。 */
+/** 为 AI 日记问答提供内部检索和引用验证接口。 */
 @RestController
 public class DiaryKnowledgeController {
 
@@ -26,7 +26,7 @@ public class DiaryKnowledgeController {
         this.json = json;
     }
 
-    /** 验证用途和原始请求体后检索本人资料。 */
+    /** 检索当前用户的相关日记片段，供 AI 回答使用。 */
     @PostMapping("/internal/ai/diaries/retrieve")
     public EvidenceResponse retrieve(
         @RequestHeader(value = "X-AI-Bridge-Token", required = false) String token,
@@ -36,7 +36,7 @@ public class DiaryKnowledgeController {
         return retrieval.retrieve(account, json.readValue(body, Search.class));
     }
 
-    /** 确认引用日记仍可见且未修改。 */
+    /** 检查答案引用的日记是否仍存在、未删除且版本未变化。 */
     @PostMapping("/internal/ai/diaries/verify")
     public Verification verify(
         @RequestHeader(value = "X-AI-Bridge-Token", required = false) String token,

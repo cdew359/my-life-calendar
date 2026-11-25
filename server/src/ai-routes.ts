@@ -4,10 +4,20 @@ import { createHash, createHmac } from "node:crypto";
 import type { ContentfulStatusCode } from "hono/utils/http-status";
 
 export interface AiBridgeOptions {
+  /** 仅由后端环境配置的 Java 私网基址，不接受前端或模型传入任意目标 URL。 */
   url?: string;
+  /** 与 Java 服务共享的专用 AI 签名密钥，至少32字符，不复用两套登录密钥。 */
   secret?: string;
 }
-/** 签发绑定账号、用途和完整请求体的短期凭据，不复用正式登录令牌。 */
+/**
+ * 为已完成 Node 登录鉴权的账号签发30秒有效凭据，协议与 Java AiBridgeTokens 对齐。
+ * SHA-256 摘要绑定原始请求体，HMAC 签名绑定整个载荷；摘要本身不提供身份授权。
+ * @param secret 后端 AI 专用密钥，不传给浏览器或模型
+ * @param account 既有鉴权中间件取得的 accountId，不从用户 JSON 中读取
+ * @param audience 本次接口用途，防止将计划提取凭据挪用到日记问答
+ * @param body 即将转发的完整 JSON 字符串，签名后不得再改动
+ * @returns 仅用于可信服务之间传递的短期签名字符串
+ */
 export function aiBridgeToken(
   secret: string,
   account: string,
@@ -24,7 +34,10 @@ export function aiBridgeToken(
   ).toString("base64url");
   return payload + "." + createHmac("sha256", secret).update(payload).digest("base64url");
 }
-/** 限制内部返回体，避免异常响应无界占用 Node 内存。 */
+/**
+ * 流式累计最多128KiB的内部响应后解析 JSON，防止异常返回体无界占用 Node 内存。
+ * 无论解析成功或失败均取消读取；网络等待上限由调用处的 AbortSignal 配置。
+ */
 async function boundedJson(response: Response): Promise<unknown> {
   if (!response.body) throw new Error("EMPTY_AI_RESPONSE");
   const reader = response.body.getReader();
@@ -43,7 +56,14 @@ async function boundedJson(response: Response): Promise<unknown> {
     await reader.cancel().catch(() => {});
   }
 }
-/** 在既有登录鉴权之后挂载；仅转发三个固定内部路径，不能作为任意 HTTP 代理。 */
+/**
+ * 正式 Node 入口的 AI 路由，必须挂载在既有账号鉴权中间件之后。
+ * 对外暴露能力检查、计划提取和日记问答三个固定路径；转发到 Java 时使用独立签名，
+ * 不直接把 Node 登录令牌当作 Cloud 令牌使用，也不允许模型决定访问地址。
+ * 未配置桥接时能力标记关闭，业务请求返回可理解的503，不影响原有录入与同步。
+ * @param options Java 私网地址及专用密钥，默认从后端环境读取
+ * @returns 在 /api/ai 下挂载的 Hono 子路由，不负责直接调用 DeepSeek
+ */
 export function aiRoutes(
   options: AiBridgeOptions = { url: process.env.AI_JAVA_URL, secret: process.env.AI_BRIDGE_SECRET },
 ) {

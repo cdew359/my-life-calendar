@@ -20,8 +20,11 @@ public class ApiSecurity {
 
     /** 使用服务器私有签名密钥创建兼容原协议的令牌工具。 */
     @Bean
-    Tokens tokens(@Value("${cloud.token-secret}") String secret) {
-        return new Tokens(secret);
+    Tokens tokens(
+        @Value("${cloud.token-secret}") String secret,
+        @Value("${LEGACY_TOKEN_SECRET:}") String previousSecret
+    ) {
+        return new Tokens(secret, previousSecret);
     }
 
     /** 为受保护的 API 校验令牌与账号存在性，并将账号标识写入请求上下文。 */

@@ -14,19 +14,39 @@ public class Tokens {
         tools.jackson.databind.json.JsonMapper.builder().build();
     private static final Base64.Encoder ENCODER = Base64.getUrlEncoder().withoutPadding();
     private final byte[] secret;
+    private final byte[] previousSecret;
 
     /** 校验并保存令牌签名密钥，拒绝过短的密钥配置。 */
     public Tokens(String secret) {
+        this(secret, "");
+    }
+
+    /** 切换后用统一密钥签发，仍接受旧入口签发且尚未到期的令牌。 */
+    public Tokens(String secret, String previousSecret) {
         if (secret == null || secret.length() < 32) throw new IllegalArgumentException(
             "TOKEN_SECRET must contain at least 32 characters"
         );
         this.secret = secret.getBytes(StandardCharsets.UTF_8);
+        if (
+            previousSecret != null && !previousSecret.isBlank() && previousSecret.length() < 32
+        ) throw new IllegalArgumentException(
+            "Previous token secret must contain at least 32 characters"
+        );
+        this.previousSecret =
+            previousSecret == null || previousSecret.isBlank()
+                ? null
+                : previousSecret.getBytes(StandardCharsets.UTF_8);
     }
 
     /** 对令牌载荷计算 HMAC-SHA256 签名。 */
     private byte[] sign(String payload) throws Exception {
+        return sign(payload, secret);
+    }
+
+    /** 使用指定的可信密钥计算签名，兼容迁移前的登录会话。 */
+    private byte[] sign(String payload, byte[] key) throws Exception {
         Mac mac = Mac.getInstance("HmacSHA256");
-        mac.init(new SecretKeySpec(secret, "HmacSHA256"));
+        mac.init(new SecretKeySpec(key, "HmacSHA256"));
         return mac.doFinal(payload.getBytes(StandardCharsets.UTF_8));
     }
 
@@ -56,7 +76,7 @@ public class Tokens {
             if (
                 parts.length != 2 ||
                 token.length() > 2048 ||
-                !MessageDigest.isEqual(sign(parts[0]), Base64.getUrlDecoder().decode(parts[1]))
+                !validSignature(parts[0], Base64.getUrlDecoder().decode(parts[1]))
             ) return null;
             var body = JSON.readTree(Base64.getUrlDecoder().decode(parts[0]));
             return body.path("acc").isTextual() &&
@@ -67,5 +87,14 @@ public class Tokens {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /** 只接受当前或显式配置的旧密钥签名，载荷的过期校验仍由 verify 执行。 */
+    private boolean validSignature(String payload, byte[] signature) throws Exception {
+        boolean current = MessageDigest.isEqual(sign(payload), signature);
+        boolean previous =
+            previousSecret != null &&
+            MessageDigest.isEqual(sign(payload, previousSecret), signature);
+        return current || previous;
     }
 }
